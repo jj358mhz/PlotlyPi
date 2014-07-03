@@ -18,11 +18,15 @@ stream_token = plotly_user_config['plotly_streaming_tokens'][0]
 py.sign_in(username, api_key)
 
 # Initialize your graph (not streaming yet)
-data = [Scatter(x=[],y=[],stream={'token': stream_token, 'maxpoints': 1000})]
+data = [Scatter(
+    x=[],y=[],
+    stream={'token': stream_token, 'maxpoints': 1000},
+    name='UCBPD')
+]
 layout = Layout(
     title='UCBPD RaspberryPi Temperature',
-    xaxis={'title': 'Time of Day'},
-    yaxis={'title': 'Degrees (Celsuis)'}
+    xaxis={'autorange': True, 'title': 'Time of Day'},
+    yaxis={'autorange': True, 'title': 'Degrees (Celsuis)'}
 )
 your_graph_url = py.plot(Figure(data=data, layout=layout), filename='RaspberryPi 2 Temp', auto_open=False)
 
