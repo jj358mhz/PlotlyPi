@@ -26,6 +26,7 @@ layout = Layout(
 )
 your_graph_url = py.plot(Figure(data=data, layout=layout), filename='RaspberryPi 2 Temp', auto_open=False)
 
+# Acquire Internal SoC Temperature
 import os
 
 cmd = '/opt/vc/bin/vcgencmd measure_temp'
@@ -36,7 +37,6 @@ if "error" in line:
 else:
    # line now contains something like: temp=41.2'C
    # to get the temperature, split on =, and then on '
-
    temp = line.split('=')[1].split("'")[0]
    print temp
 
