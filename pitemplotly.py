@@ -52,4 +52,8 @@ stream.open()
 # Start looping and streaming!
 while True:
     stream.write({'x': datetime.datetime.now(), 'y': temp})
-    time.sleep(1) # delay between stream posts
+    time.sleep(300) # delay between stream posts in seconds
+    cmd = '/opt/vc/bin/vcgencmd measure_temp'
+    line = os.popen(cmd).readline().strip()
+    temp = line.split('=')[1].split("'")[0] 
+    print temp
