@@ -7,7 +7,7 @@ import sys
 import time  # this is only being used as part of the example
 
 # Deafults
-LOG_FILENAME = "/tmp/myservice.log"
+LOG_FILENAME = "/tmp/pitemplotly.log"
 LOG_LEVEL = logging.INFO  # Could be e.g. "DEBUG" or "WARNING"
 
 # Define and parse command line arguments
