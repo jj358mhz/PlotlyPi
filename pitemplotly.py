@@ -8,6 +8,12 @@ import datetime
 import os # used to acquire internal SoC temperature
 import sys
 
+# Test to run as a daemon
+fpid = os.fork()
+if fpid!=0:
+    # Running as daemon now. PID is fpid
+    sys.exit(0)
+
 # Initialize some variables with your credentials
 with open('./config.json') as config_file:
     plotly_user_config = json.load(config_file)
@@ -56,3 +62,8 @@ while True:
     cmd = '/opt/vc/bin/vcgencmd measure_temp'
     line = os.popen(cmd).readline().strip()
     temp = line.split('=')[1].split("'")[0]
+
+# Endless loop
+while 1:
+    do_your_check()
+    sleep(5)
