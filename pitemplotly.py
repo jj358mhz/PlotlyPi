@@ -29,13 +29,13 @@ py.sign_in(username, api_key)
 data = [Scatter(
     x=[],y=[],
     mode='lines+markers',
-    stream={'token': stream_token, 'maxpoints': 1000},
+    stream={'token': stream_token, 'maxpoints': 25},
     name='UCBPD')
 ]
 layout = Layout(
     title='Raspberry Pi Temperature',
     xaxis={'autorange': True, 'title': 'Time of Day'},
-    yaxis={'autorange': True, 'title': 'Degrees (Celsuis)'}
+    yaxis={'autorange': True, 'title': 'Degrees (Celsius)'}
 )
 your_graph_url = py.plot(Figure(data=data, layout=layout), filename='Raspberry Pi Temp', auto_open=False)
 
